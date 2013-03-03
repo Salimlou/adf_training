@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+<!---->
+<AppModule
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="HRServiceAppModule"
+  Version="11.1.2.62.76"
+  ClearCacheOnRollback="true">
+  <ViewUsage
+    Name="DepartmentVO1"
+    ViewObjectName="com.geminica.adf.chapter_two.model.view.DepartmentVO"/>
+  <ViewUsage
+    Name="EmployeeVO1"
+    ViewObjectName="com.geminica.adf.chapter_two.model.view.EmployeeVO"/>
+  <ViewUsage
+    Name="DepartmentVO2"
+    ViewObjectName="com.geminica.adf.chapter_two.model.view.DepartmentVO"/>
+  <ViewUsage
+    Name="EmployeeVO2"
+    ViewObjectName="com.geminica.adf.chapter_two.model.view.EmployeeVO"/>
+  <ViewUsage
+    Name="EmployeeVO3"
+    ViewObjectName="com.geminica.adf.chapter_two.model.view.EmployeeVO"/>
+  <ViewLinkUsage
+    Name="DeptMgrFkLink1"
+    ViewLinkObjectName="com.geminica.adf.chapter_two.model.view.link.DeptMgrFkLink"
+    SrcViewUsageName="com.geminica.adf.chapter_two.model.service.HRServiceAppModule.EmployeeVO1"
+    DstViewUsageName="com.geminica.adf.chapter_two.model.service.HRServiceAppModule.DepartmentVO2"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="EmpManagerFkLink1"
+    ViewLinkObjectName="com.geminica.adf.chapter_two.model.view.link.EmpManagerFkLink"
+    SrcViewUsageName="com.geminica.adf.chapter_two.model.service.HRServiceAppModule.EmployeeVO1"
+    DstViewUsageName="com.geminica.adf.chapter_two.model.service.HRServiceAppModule.EmployeeVO2"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="EmpDeptFkLink1"
+    ViewLinkObjectName="com.geminica.adf.chapter_two.model.view.link.EmpDeptFkLink"
+    SrcViewUsageName="com.geminica.adf.chapter_two.model.service.HRServiceAppModule.DepartmentVO1"
+    DstViewUsageName="com.geminica.adf.chapter_two.model.service.HRServiceAppModule.EmployeeVO3"
+    Reversed="false"/>
+</AppModule>

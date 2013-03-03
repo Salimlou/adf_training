@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+<!---->
+<AppModule
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="HRServiceAppModule"
+  Version="11.1.2.62.76"
+  ClearCacheOnRollback="true">
+  <ViewUsage
+    Name="Department1"
+    ViewObjectName="com.geminica.adf.chapter_three.model.view.DepartmentVO"/>
+  <ViewUsage
+    Name="Employee1"
+    ViewObjectName="com.geminica.adf.chapter_three.model.view.EmployeeVO"/>
+  <ViewUsage
+    Name="Employee2"
+    ViewObjectName="com.geminica.adf.chapter_three.model.view.EmployeeVO"/>
+  <ViewUsage
+    Name="Employee3"
+    ViewObjectName="com.geminica.adf.chapter_three.model.view.EmployeeVO"/>
+  <ViewUsage
+    Name="Department2"
+    ViewObjectName="com.geminica.adf.chapter_three.model.view.DepartmentVO"/>
+  <ViewUsage
+    Name="Department3"
+    ViewObjectName="com.geminica.adf.chapter_three.model.view.DepartmentVO"/>
+  <ViewUsage
+    Name="Employee4"
+    ViewObjectName="com.geminica.adf.chapter_three.model.view.EmployeeVO"/>
+  <ViewLinkUsage
+    Name="EmpManagerFkLink"
+    ViewLinkObjectName="com.geminica.adf.chapter_three.model.view.link.EmpManagerFkLink"
+    SrcViewUsageName="com.geminica.adf.chapter_three.model.service.HRServiceAppModule.Employee1"
+    DstViewUsageName="com.geminica.adf.chapter_three.model.service.HRServiceAppModule.Employee2"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="DeptMgrFkLink"
+    ViewLinkObjectName="com.geminica.adf.chapter_three.model.view.link.DeptMgrFkLink"
+    SrcViewUsageName="com.geminica.adf.chapter_three.model.service.HRServiceAppModule.Employee3"
+    DstViewUsageName="com.geminica.adf.chapter_three.model.service.HRServiceAppModule.Department2"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="EmpDeptFkLink"
+    ViewLinkObjectName="com.geminica.adf.chapter_three.model.view.link.EmpDeptFkLink"
+    SrcViewUsageName="com.geminica.adf.chapter_three.model.service.HRServiceAppModule.Department3"
+    DstViewUsageName="com.geminica.adf.chapter_three.model.service.HRServiceAppModule.Employee4"
+    Reversed="false"/>
+</AppModule>
