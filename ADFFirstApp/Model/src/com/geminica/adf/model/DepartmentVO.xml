@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="DepartmentVO"
+  Version="11.1.2.62.76"
+  SelectList="DepartmentEO.DEPARTMENT_ID, 
+       DepartmentEO.DEPARTMENT_NAME, 
+       DepartmentEO.LOCATION_ID, 
+       DepartmentEO.MANAGER_ID"
+  FromList="HR.DEPARTMENTS DepartmentEO"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="com.geminica.adf.model.DepartmentVO_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <EntityUsage
+    Name="DepartmentEO"
+    Entity="com.geminica.adf.model.DepartmentEO"/>
+  <ViewAttribute
+    Name="DepartmentId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="DepartmentId"
+    EntityUsage="DepartmentEO"
+    AliasName="DEPARTMENT_ID"/>
+  <ViewAttribute
+    Name="DepartmentName"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="DepartmentName"
+    EntityUsage="DepartmentEO"
+    AliasName="DEPARTMENT_NAME"/>
+  <ViewAttribute
+    Name="LocationId"
+    PrecisionRule="true"
+    EntityAttrName="LocationId"
+    EntityUsage="DepartmentEO"
+    AliasName="LOCATION_ID"/>
+  <ViewAttribute
+    Name="ManagerId"
+    PrecisionRule="true"
+    EntityAttrName="ManagerId"
+    EntityUsage="DepartmentEO"
+    AliasName="MANAGER_ID"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.geminica.adf.model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>
