@@ -23,7 +23,8 @@
     PrecisionRule="true"
     EntityAttrName="DepartmentId"
     EntityUsage="DepartmentEO"
-    AliasName="DEPARTMENT_ID"/>
+    AliasName="DEPARTMENT_ID"
+    IsUpdateable="while_insert"/>
   <ViewAttribute
     Name="DepartmentName"
     IsNotNull="true"
@@ -46,6 +47,11 @@
   <ViewLinkAccessor
     Name="Employee"
     ViewLink="com.geminica.adf.chapter_three.model.view.link.EmpDeptFkLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="JobHistory"
+    ViewLink="com.geminica.adf.chapter_three.model.view.link.JhistDeptFkLink"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
 </ViewObject>

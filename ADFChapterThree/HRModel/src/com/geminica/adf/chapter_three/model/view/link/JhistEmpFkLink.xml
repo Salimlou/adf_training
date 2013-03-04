@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="JhistEmpFkLink"
+  Version="11.1.2.62.76"
+  EntityAssociation="com.geminica.adf.chapter_three.model.entity.assoc.JhistEmpFkAssoc">
+  <ViewLinkDefEnd
+    Name="Employee"
+    Cardinality="1"
+    Source="true"
+    Owner="com.geminica.adf.chapter_three.model.view.EmployeeVO">
+    <DesignTime>
+      <Attr Name="_finderName" Value="Employee"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_minCardinality" Value="1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.geminica.adf.chapter_three.model.view.EmployeeVO.EmployeeId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="JobHistory"
+    Cardinality="-1"
+    Owner="com.geminica.adf.chapter_three.model.view.JobHistoryVO">
+    <DesignTime>
+      <Attr Name="_finderName" Value="JobHistory"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.geminica.adf.chapter_three.model.view.JobHistoryVO.EmployeeId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+</ViewLink>

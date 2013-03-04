@@ -32,6 +32,14 @@
     </DesignTime>
   </Containee>
   <Containee
+    Name="inheritance"
+    PackageName="com.geminica.adf.chapter_three.model.entity.inheritance"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_EO" Value="true"/>
+    </DesignTime>
+  </Containee>
+  <Containee
     Name="properties"
     PackageName="com.geminica.adf.chapter_three.model.properties"
     ObjectType="JboPackage">
@@ -45,6 +53,14 @@
     ObjectType="JboPackage">
     <DesignTime>
       <Attr Name="_AM" Value="true"/>
+    </DesignTime>
+  </Containee>
+  <Containee
+    Name="inheritance"
+    PackageName="com.geminica.adf.chapter_three.model.view.inheritance"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_VO" Value="true"/>
     </DesignTime>
   </Containee>
   <Containee

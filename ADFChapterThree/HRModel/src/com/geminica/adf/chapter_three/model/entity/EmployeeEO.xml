@@ -27,7 +27,8 @@
     Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="HR.EMPLOYEES"
-    PrimaryKey="true">
+    PrimaryKey="true"
+    IsUpdateable="while_insert">
     <TransientExpression><![CDATA[(new oracle.jbo.server.SequenceImpl("EMPLOYEES_SEQ", 
 adf.object.getDBTransaction())).getSequenceNumber()]]></TransientExpression>
   </Attribute>
@@ -94,12 +95,12 @@ adf.object.getDBTransaction())).getSequenceNumber()]]></TransientExpression>
   <Attribute
     Name="JobId"
     IsNotNull="true"
-    Precision="10"
     ColumnName="JOB_ID"
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="HR.EMPLOYEES">
+    TableName="HR.EMPLOYEES"
+    Precision="255">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="10"/>
     </DesignTime>
@@ -168,6 +169,24 @@ adf.object.getDBTransaction())).getSequenceNumber()]]></TransientExpression>
     AssociationOtherEnd="com.geminica.adf.chapter_three.model.entity.assoc.EmpDeptFkAssoc.Employee1"
     Type="oracle.jbo.server.EntityImpl"
     IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="JobHistory"
+    Association="com.geminica.adf.chapter_three.model.entity.assoc.JhistEmpFkAssoc"
+    AssociationEnd="com.geminica.adf.chapter_three.model.entity.assoc.JhistEmpFkAssoc.JobHistory"
+    AssociationOtherEnd="com.geminica.adf.chapter_three.model.entity.assoc.JhistEmpFkAssoc.Employee"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <Key
+    Name="EmailAltKey"
+    AltKey="true">
+    <DesignTime>
+      <Attr Name="_isUnique" Value="true"/>
+      <Attr Name="_DBObjectName" Value="HR.EMPLOYEES"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.geminica.adf.chapter_three.model.entity.EmployeeEO.Email"/>
+    </AttrArray>
+  </Key>
   <Key
     Name="EmpEmailUk">
     <DesignTime>

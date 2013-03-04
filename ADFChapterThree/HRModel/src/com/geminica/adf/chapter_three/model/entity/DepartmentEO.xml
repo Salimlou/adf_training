@@ -28,7 +28,10 @@
     Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="HR.DEPARTMENTS"
-    PrimaryKey="true">
+    PrimaryKey="true"
+    IsUpdateable="while_insert">
+    <TransientExpression><![CDATA[(new oracle.jbo.server.SequenceImpl("DEPARTMENTS_SEQ", 
+adf.object.getDBTransaction())).getSequenceNumber()]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <CONTROLTYPE
@@ -92,11 +95,14 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="HR.DEPARTMENTS"
     IsPersistent="false"
     IsQueriable="false">
     <RecalcCondition><![CDATA[false]]></RecalcCondition>
     <TransientExpression><![CDATA[null != getDepartmentName() ? getDepartmentName.substring(0, 5) : null]]></TransientExpression>
+    <Dependencies>
+      <Item
+        Value="DepartmentName"/>
+    </Dependencies>
   </Attribute>
   <AccessorAttribute
     Name="Employee"
@@ -110,6 +116,13 @@
     Association="com.geminica.adf.chapter_three.model.entity.assoc.EmpDeptFkAssoc"
     AssociationEnd="com.geminica.adf.chapter_three.model.entity.assoc.EmpDeptFkAssoc.Employee1"
     AssociationOtherEnd="com.geminica.adf.chapter_three.model.entity.assoc.EmpDeptFkAssoc.Department1"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="JobHistory"
+    Association="com.geminica.adf.chapter_three.model.entity.assoc.JhistDeptFkAssoc"
+    AssociationEnd="com.geminica.adf.chapter_three.model.entity.assoc.JhistDeptFkAssoc.JobHistory"
+    AssociationOtherEnd="com.geminica.adf.chapter_three.model.entity.assoc.JhistDeptFkAssoc.Department"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
   <Key
