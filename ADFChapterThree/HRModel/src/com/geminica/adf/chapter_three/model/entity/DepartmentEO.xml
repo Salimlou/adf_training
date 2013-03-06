@@ -125,6 +125,13 @@ adf.object.getDBTransaction())).getSequenceNumber()]]></TransientExpression>
     AssociationOtherEnd="com.geminica.adf.chapter_three.model.entity.assoc.JhistDeptFkAssoc.Department"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="TestAssoc"
+    Association="com.geminica.adf.chapter_three.model.entity.assoc.TestAssocToDeptAssoc"
+    AssociationEnd="com.geminica.adf.chapter_three.model.entity.assoc.TestAssocToDeptAssoc.TestAssoc"
+    AssociationOtherEnd="com.geminica.adf.chapter_three.model.entity.assoc.TestAssocToDeptAssoc.Department"
+    Type="com.geminica.adf.chapter_three.model.entity.TestAssocEOImpl"
+    IsUpdateable="true"/>
   <Key
     Name="DeptIdPk"
     PrimaryKey="true">
@@ -155,6 +162,17 @@ adf.object.getDBTransaction())).getSequenceNumber()]]></TransientExpression>
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="com.geminica.adf.chapter_three.model.entity.DepartmentEO.ManagerId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_DepartmentEO">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="D_ID_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_DEPARTMENT_EO"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.geminica.adf.chapter_three.model.entity.DepartmentEO.DepartmentId"/>
     </AttrArray>
   </Key>
   <validation:LengthValidationBean

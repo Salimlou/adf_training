@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="TestAssocEO"
+  Version="11.1.2.62.76"
+  DBObjectType="TABLE"
+  DBObjectName="HR.TEST_ASSOC"
+  AliasName="TestAssocEO"
+  BindingStyle="OracleName"
+  UseGlueCode="false"
+  RowClass="com.geminica.adf.chapter_three.model.entity.TestAssocEOImpl"
+  DefClass="com.geminica.adf.chapter_three.model.entity.TestAssocEODefImpl"
+  CollClass="com.geminica.adf.chapter_three.model.entity.TestAssocEOCollImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|Def|Coll|VarAccess"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Attribute
+    Name="DepartmentId"
+    IsUnique="true"
+    IsNotNull="true"
+    Precision="4"
+    Scale="0"
+    ColumnName="DEPARTMENT_ID"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="HR.TEST_ASSOC"
+    PrimaryKey="true">
+    <TransientExpression><![CDATA[(new oracle.jbo.server.SequenceImpl("TEST_ASSOC_SEQ", 
+adf.object.getDBTransaction())).getSequenceNumber()]]></TransientExpression>
+  </Attribute>
+  <Attribute
+    Name="DepartmentName"
+    IsNotNull="true"
+    Precision="30"
+    ColumnName="DEPARTMENT_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="HR.TEST_ASSOC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ManagerId"
+    Precision="6"
+    Scale="0"
+    ColumnName="MANAGER_ID"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="HR.TEST_ASSOC"/>
+  <Attribute
+    Name="LocationId"
+    Precision="4"
+    Scale="0"
+    ColumnName="LOCATION_ID"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="HR.TEST_ASSOC"/>
+  <AccessorAttribute
+    Name="Department"
+    Association="com.geminica.adf.chapter_three.model.entity.assoc.TestAssocToDeptAssoc"
+    AssociationEnd="com.geminica.adf.chapter_three.model.entity.assoc.TestAssocToDeptAssoc.Department"
+    AssociationOtherEnd="com.geminica.adf.chapter_three.model.entity.assoc.TestAssocToDeptAssoc.TestAssoc"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <Key
+    Name="DIdPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="D_ID_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.geminica.adf.chapter_three.model.entity.TestAssocEO.DepartmentId"/>
+    </AttrArray>
+  </Key>
+</Entity>

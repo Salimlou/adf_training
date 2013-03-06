@@ -12,7 +12,8 @@
   UseGlueCode="false"
   RowClass="com.geminica.adf.chapter_three.model.entity.EmployeeEOImpl"
   DefClass="com.geminica.adf.chapter_three.model.entity.EmployeeEODefImpl"
-  CollClass="com.geminica.adf.chapter_three.model.entity.EmployeeEOCollImpl">
+  CollClass="com.geminica.adf.chapter_three.model.entity.EmployeeEOCollImpl"
+  xmlns:validation="http://xmlns.oracle.com/adfm/validation">
   <DesignTime>
     <Attr Name="_codeGenFlag2" Value="Init|Delete|Access|DML|Def|Coll|VarAccess"/>
     <Attr Name="_isCodegen" Value="true"/>
@@ -56,6 +57,15 @@ adf.object.getDBTransaction())).getSequenceNumber()]]></TransientExpression>
     <DesignTime>
       <Attr Name="_DisplaySize" Value="25"/>
     </DesignTime>
+    <validation:MethodValidationBean
+      Name="LastName_Rule_0"
+      ResId="com.geminica.adf.chapter_three.model.entity.EmployeeEO.LastName_Rule_0"
+      MethodName="validateLastName">
+      <validation:ResExpressions>
+        <validation:Expression
+          Name="lastName"><![CDATA[adf.object.hints.LastName.label]]></validation:Expression>
+      </validation:ResExpressions>
+    </validation:MethodValidationBean>
   </Attribute>
   <Attribute
     Name="Email"
@@ -91,7 +101,23 @@ adf.object.getDBTransaction())).getSequenceNumber()]]></TransientExpression>
     SQLType="DATE"
     Type="oracle.jbo.domain.Timestamp"
     ColumnType="DATE"
-    TableName="HR.EMPLOYEES"/>
+    TableName="HR.EMPLOYEES">
+    <validation:CompareValidationBean
+      Name="HireDate_Rule_0"
+      ResId="com.geminica.adf.chapter_three.model.entity.EmployeeEO.HireDate_Rule_0"
+      OnAttribute="HireDate"
+      OperandType="EXPR"
+      Inverse="false"
+      CompareType="LESSTHAN">
+      <validation:ResExpressions>
+        <validation:Expression
+          Name="todaysDate"><![CDATA[adf.currentDate]]></validation:Expression>
+        <validation:Expression
+          Name="hireDate"><![CDATA[adf.object.hints.hireDate.label]]></validation:Expression>
+      </validation:ResExpressions>
+      <validation:TransientExpression><![CDATA[adf.currentDate]]></validation:TransientExpression>
+    </validation:CompareValidationBean>
+  </Attribute>
   <Attribute
     Name="JobId"
     IsNotNull="true"
@@ -240,4 +266,8 @@ adf.object.getDBTransaction())).getSequenceNumber()]]></TransientExpression>
       <Item Value="com.geminica.adf.chapter_three.model.entity.EmployeeEO.ManagerId"/>
     </AttrArray>
   </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.geminica.adf.chapter_three.model.HRModelBundle"/>
+  </ResourceBundle>
 </Entity>

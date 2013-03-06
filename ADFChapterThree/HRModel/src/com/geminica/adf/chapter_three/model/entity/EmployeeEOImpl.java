@@ -36,6 +36,20 @@ public class EmployeeEOImpl extends EntityImpl {
     }
 
     /**
+     * Validation method for LastName.
+     */
+    public boolean validateLastName(String lastname) {
+        boolean bReturn = false;
+        
+        if ((null != lastname)
+            && (false == lastname.isEmpty())){
+            bReturn = true;
+        }
+        
+        return bReturn;
+    }
+
+    /**
      * AttributesEnum: generated enum for identifying attributes and accessors. Do not modify.
      */
     public enum AttributesEnum {
@@ -198,16 +212,6 @@ public class EmployeeEOImpl extends EntityImpl {
                 obj.setAttributeInternal(index(), value);
             }
         }
-        ,
-        MarketingBaseEmployee {
-            public Object get(EmployeeEOImpl obj) {
-                return obj.getMarketingBaseEmployee();
-            }
-
-            public void put(EmployeeEOImpl obj, Object value) {
-                obj.setMarketingBaseEmployee((MarketingBaseEmployeeEOImpl)value);
-            }
-        }
         ;
         private static AttributesEnum[] vals = null;
         private static int firstIndex = 0;
@@ -237,6 +241,8 @@ public class EmployeeEOImpl extends EntityImpl {
     }
 
 
+    public static final int MARKETINGBASEEMPLOYEE = AttributesEnum.MarketingBaseEmployee.index();
+
     public static final int EMPLOYEEID = AttributesEnum.EmployeeId.index();
     public static final int FIRSTNAME = AttributesEnum.FirstName.index();
     public static final int LASTNAME = AttributesEnum.LastName.index();
@@ -253,7 +259,6 @@ public class EmployeeEOImpl extends EntityImpl {
     public static final int DEPARTMENT = AttributesEnum.Department.index();
     public static final int DEPARTMENT1 = AttributesEnum.Department1.index();
     public static final int JOBHISTORY = AttributesEnum.JobHistory.index();
-    public static final int MARKETINGBASEEMPLOYEE = AttributesEnum.MarketingBaseEmployee.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -539,6 +544,15 @@ public class EmployeeEOImpl extends EntityImpl {
 
 
     /**
+     * @param employeeId key constituent
+
+     * @return a Key object based on given key constituents.
+     */
+    public static Key createPrimaryKey(Integer employeeId) {
+        return new Key(new Object[]{employeeId});
+    }
+
+    /**
      * @return the associated entity MarketingBaseEmployeeEOImpl.
      */
     public MarketingBaseEmployeeEOImpl getMarketingBaseEmployee() {
@@ -552,15 +566,6 @@ public class EmployeeEOImpl extends EntityImpl {
         setAttributeInternal(MARKETINGBASEEMPLOYEE, value);
     }
 
-
-    /**
-     * @param employeeId key constituent
-
-     * @return a Key object based on given key constituents.
-     */
-    public static Key createPrimaryKey(Integer employeeId) {
-        return new Key(new Object[]{employeeId});
-    }
 
     /**
      * Add attribute defaulting logic in this method.

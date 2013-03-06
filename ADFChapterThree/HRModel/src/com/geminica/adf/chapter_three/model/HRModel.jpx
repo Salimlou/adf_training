@@ -11,7 +11,7 @@
     <Attr Name="_jprName" Value="../../../../../../HRModel.jpr"/>
     <Attr Name="_jbo.TypeMapEntries" Value="OracleApps"/>
     <Attr Name="_NamedConnection" Value="hr"/>
-    <Attr Name="_appModuleNames0" Value="com.geminica.adf.chapter_three.model.service.HRServiceAppModule"/>
+    <Attr Name="_appModuleNames0" Value="com.geminica.adf.chapter_three.model.service.HRServiceAM"/>
     <Attr Name="_domainNames0" Value="com.geminica.adf.chapter_three.model.properties.HRPropertySet"/>
     <Attr Name="_propSetNames0" Value="com.geminica.adf.chapter_three.model.properties.HRPropertySet"/>
   </DesignTime>

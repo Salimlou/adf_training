@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="TestAssocVO"
+  Version="11.1.2.62.76"
+  SelectList="TestAssocEO.DEPARTMENT_ID, 
+       TestAssocEO.DEPARTMENT_NAME, 
+       TestAssocEO.MANAGER_ID, 
+       TestAssocEO.LOCATION_ID"
+  FromList="HR.TEST_ASSOC TestAssocEO"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <EntityUsage
+    Name="TestAssocEO"
+    Entity="com.geminica.adf.chapter_three.model.entity.TestAssocEO"/>
+  <ViewAttribute
+    Name="DepartmentId"
+    IsUnique="true"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="DepartmentId"
+    EntityUsage="TestAssocEO"
+    AliasName="DEPARTMENT_ID"/>
+  <ViewAttribute
+    Name="DepartmentName"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="DepartmentName"
+    EntityUsage="TestAssocEO"
+    AliasName="DEPARTMENT_NAME"/>
+  <ViewAttribute
+    Name="ManagerId"
+    PrecisionRule="true"
+    EntityAttrName="ManagerId"
+    EntityUsage="TestAssocEO"
+    AliasName="MANAGER_ID"/>
+  <ViewAttribute
+    Name="LocationId"
+    PrecisionRule="true"
+    EntityAttrName="LocationId"
+    EntityUsage="TestAssocEO"
+    AliasName="LOCATION_ID"/>
+</ViewObject>
